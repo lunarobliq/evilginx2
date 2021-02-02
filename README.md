@@ -5,6 +5,8 @@
   </p>
 </p>
 
+REF: https://shells.systems/customising-an-existing-evilginx-phishlet-to-work-with-modern-citrix/
+
 **evilginx2** is a man-in-the-middle attack framework used for phishing login credentials along with session cookies, which in turn allows to bypass 2-factor authentication protection.
 
 This tool is a successor to [Evilginx](https://github.com/kgretzky/evilginx), released in 2017, which used a custom version of nginx HTTP server to provide man-in-the-middle functionality to act as a proxy between a browser and phished website.
